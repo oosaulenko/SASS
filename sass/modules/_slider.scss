@@ -1,0 +1,288 @@
+/* Slider */
+
+.slick{
+
+  &-slider &-track,
+  &-slider &-list {
+    @include transform(translate3d(0, 0, 0));
+  }
+
+  &-slider{
+    @include user-select(none);
+    position: relative;
+    display: block;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &-list{
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.dragging {
+      cursor: pointer;
+      cursor: hand;
+    }
+  }
+
+  &-track{
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    .slick-loading & {
+      visibility: hidden;
+    }
+  }
+
+  &-slide{
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    outline: none;
+    padding: 0 -40px;
+    display: none;
+
+    [dir="rtl"] & {
+      float: right;
+    }
+    img {
+      display: block;
+      width: 100%;
+
+    }
+
+    &.slick-loading img {
+      display: none;
+    }
+
+    &.dragging img {
+      pointer-events: none;
+    }
+
+    .slick-initialized & {
+      display: block;
+    }
+
+    .slick-loading & {
+      visibility: hidden;
+    }
+
+    .slick-vertical & {
+      display: block;
+      height: auto;
+      border: 1px solid transparent;
+    }
+  }
+}
+
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+$btn-size:                80px;
+
+@include breakpoint($small){
+  $btn-size: 25px;
+}
+
+$btn-arrowsize:           $btn-size / 4;
+
+// Button colors
+$btn-color:               $white;
+$btn-bg:                  $color_3;
+$btn-border:              $color_3;
+
+// Button hover colors
+$btn-hover-color:         $white;
+$btn-bg-hover:            $color;
+$btn-hover-border-color:  $color;
+
+.slick-arrow, .flickity-prev-next-button {
+  position: absolute;
+  width: $btn-size;
+  height: $btn-size;
+  background: $btn-bg;
+  border: 2px solid $btn-border;
+  @include border-radius($btn-size);
+  color: $btn-color;
+  cursor: pointer;
+  font-size: 0;
+  top: 50%;
+  outline: none;
+  line-height: $btn-size;
+  @include transition( all 250ms ease-in-out 0s);
+  @include transform(translateY(-50%) rotate(-90deg));
+  @extend .z-depth-3;
+  margin-top: - $btn-size/2;
+  z-index: 100;
+
+  &:hover {
+    background: $btn-bg-hover;
+    border-color: $btn-hover-border-color;
+    color: $btn-hover-color;
+  }
+
+  &:after {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    width: $btn-arrowsize;
+    height: $btn-arrowsize;
+    top: 50%;
+    left: 50%;
+    margin-left: -($btn-arrowsize * .5);
+    margin-top: -($btn-arrowsize * .25);
+    border-top: 2px solid;
+    border-left: 2px solid;
+    transform: rotateZ(45deg);
+
+    @include breakpoint($small){
+      border-width: 1px;
+    }
+  }
+
+  @include breakpoint($small){
+    border-width: 1px;
+  }
+
+  svg{
+    display: none;
+  }
+
+  &.prev, &.previous{
+    left: 25px;
+  }
+
+  &.next{
+    right: 25px;
+    @include transform(translateY(-50%) rotate(-270deg));
+    //transform: rotate(-270deg);
+  }
+}
+
+.slick{
+  &-prev{
+    left: 25px;
+  }
+
+  &-next{
+    right: 25px;
+    @include transform(translateY(-50%) rotate(-270deg));
+  }
+}
+
+//.slick-arrow{
+//  font-size: 0;
+//  border: 0;
+//  padding: 0;
+//  top: 50%;
+//  position: absolute;
+//  outline: none;
+//  background-image: url('img/slider/arrow.png');
+//  width: 29px;
+//  height: 50px;
+//  margin-top: -25px;
+//  background-color: transparent;
+//  z-index: 100;
+//  background-repeat: no-repeat;
+//  background-position: center;
+//}
+//
+//.slick{
+//  &-prev{
+//    left: 20px;
+//  }
+//
+//  &-next{
+//    right: 20px;
+//    transform: rotate(-270deg);
+//  }
+//}
+
+.slick-center{
+  &:before{
+    display: none;
+  }
+}
+
+//  SLICK DOTS  //
+// Variable settings
+
+$dots-width: 10px; // Width dots
+$dots-height: 10px; // Height dots
+$dots-color: #242424; // Color dots
+$dots-radius: 50%; // Radius dots
+
+.slick-dots{
+  position: absolute;
+  bottom: -5px;
+  //right: 35px;
+  width: 100%;
+  text-align: center;
+
+  @include breakpoint($desktop-1x){
+    bottom: -20px;
+  }
+
+  @include breakpoint($mobile){
+    bottom: -20px;
+  }
+
+  @include breakpoint($tablet){
+    bottom: -20px;
+  }
+
+  @include breakpoint($tablet-1x){
+    bottom: -20px;
+  }
+
+  li{
+    display: inline-block;
+    @include squish(5px);
+
+    button{
+      font-size: 0;
+      outline: none;
+      padding: 0;
+      width: $dots-width;
+      height: $dots-height;
+      border: 3px solid transparent;
+      background-color: $dots-color;
+      @include border-radius($dots-radius);
+    }
+
+    &.slick-active{
+      opacity: 1!important;
+
+      button{
+        width: 10px;
+        height: 10px;
+        border: 3px solid #ac1a1c;
+        @include border-radius(50%);
+        background-color: #ac1a1c;
+      }
+    }
+  }
+}
+//  END SLICK DOTS   //

@@ -1,0 +1,146 @@
+.section-delivery{
+  @include span(full);
+  margin-top: 73px;
+
+  .block_delivery{
+    @include span(full);
+
+    .col{
+
+      &-info{
+        @include span(8 of 12);
+
+        .title{
+          @include span(full);
+          font-size: 24px;
+          font-weight: 500;
+          color: #333;
+          margin-bottom: 27px;
+          margin-top: 0;
+        }
+
+        .text{
+          @include span(full);
+          font-size: 16px;
+          font-weight: 400;
+          color: #333;
+          padding-left: 20px;
+        }
+      }
+
+      &-time{
+        @include span(4 of 12 last);
+
+        .title{
+          font-family: $ff-bebas;
+          font-size: 32px;
+          font-weight: 600;
+          color: #333;
+          margin-bottom: 27px;
+          text-align: center;
+        }
+
+        .time{
+          @include span(full);
+          text-align: center;
+
+          .icon{
+            display: inline-block;
+            background-image: url('img/icon/stopwatch.png');
+            width: 46px;
+            height: 48px;
+            margin-right: 22px;
+          }
+
+          .num{
+            display: inline-block;
+            color: #333;
+            font-family: $ff-bebas;
+
+            b{
+              font-weight: 600;
+              font-size: 59px;
+            }
+
+            span{
+              font-weight: 400;
+              font-size: 32px;
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .block_pay{
+    @include span(full);
+    margin-top: 79px;
+
+    .title{
+      @include span(full);
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 45px;
+      margin-top: 0;
+    }
+
+    .method_pay{
+      @include span(full);
+      margin-bottom: 36px;
+
+      .item{
+        @include span(1 of 3);
+
+        &:nth-of-type(3n){
+          @include span(1 of 3 last);
+        }
+
+        .icon{
+          margin-bottom: 24px;
+          width: 65px;
+          height: 73px;
+          background-size: 65px auto;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          &-coin{
+            background-image: url('img/icon/pay/coins.png');
+          }
+
+          &-card{
+            background-image: url('img/icon/pay/card.png');
+          }
+
+          &-phone{
+            background-image: url('img/icon/pay/phone.png');
+          }
+        }
+
+        .name{
+          color: #333;
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 15px;
+        }
+
+        .text{
+          color: #666;
+          font-size: 16px;
+
+          img{
+            float: left;
+            margin-top: 12px;
+          }
+        }
+
+      }
+    }
+
+    .button{
+      height: 48px;
+      @include border-radius(24px);
+    }
+  }
+}

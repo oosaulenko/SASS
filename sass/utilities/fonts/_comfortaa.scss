@@ -1,0 +1,19 @@
+$font-family-name: 'Comfortaa';
+
+@font-face {
+  font-family: $font-family-name; /* Имя шрифта */
+  src: url(fonts/comfortaa/comfortaa-light.ttf); /* Путь к файлу со шрифтом */
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: $font-family-name; /* Имя шрифта */
+  src: url(fonts/comfortaa/comfortaa-regular.ttf); /* Путь к файлу со шрифтом */
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: $font-family-name; /* Имя шрифта */
+  src: url(fonts/comfortaa/comfortaa-bold.ttf); /* Путь к файлу со шрифтом */
+  font-weight: 600;
+}

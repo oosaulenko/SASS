@@ -1,0 +1,110 @@
+$button-bg-color-default: $color_3;
+$button-color-default: $white;
+$button-border-radius: 18px;
+$button-weight: 500;
+$button-font-size: 14px;
+$button-default-padding: 0 36px;
+$button-font-family: $ff-raleway;
+
+
+.button {
+  //text-transform: uppercase;
+  font-family: $button-font-family;
+  font-weight: $button-weight;
+  color: $button-color-default;
+  background-color: $button-bg-color-default;
+  @include border-radius($button-border-radius);
+  border: 0;
+  font-size: $button-font-size;
+  padding: $button-default-padding;
+  outline: none;
+  line-height: 100%;
+  transition: all 200ms ease 0s;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  height: 36px;
+
+  @include breakpoint($small){
+    height: 48px;
+    width: 100%;
+    font-size: 16px;
+    padding: 16px 0;
+  }
+
+  a{
+    color: $white;
+  }
+
+  &:hover {
+    background-color: lighten($button-bg-color-default, 8);
+
+    a{
+      color: $white!important;
+    }
+  }
+
+  &:active{
+    background-color: darken($button-bg-color-default, 10);
+  }
+
+  &-light{
+    width: 100%!important;
+    font-size: 20px;
+    padding: 11px;
+    @include border-radius(23px);
+  }
+}
+
+// QUANTITY //
+
+.quantity{
+  @include breakpoint($small){
+    display: inline-block;
+  }
+
+  .input-number,
+  .input-number-decrement,
+  .input-number-increment {
+    border: 1px solid #ccc;
+    height: 30px;
+    user-select: none;
+    float: left;
+  }
+
+
+  .input-number {
+    width: 80px;
+    padding: 0 12px;
+    vertical-align: top;
+    text-align: center;
+    outline: none;
+    font-size: 18px;
+
+    &-increment, &-decrement{
+      display: inline-block;
+      width: 42px;
+      line-height: 28px;
+      background: transparent;
+      color: $color;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 18px;
+
+      &:active{
+        //background: #ddd;
+      }
+    }
+
+    &-decrement{
+      border-right: none;
+      @include border-radius(15px 0 0 15px);
+    }
+
+    &-increment{
+      border-left: none;
+      @include border-radius(0 15px 15px 0);
+    }
+  }
+}
+
+// END QUANTITY //

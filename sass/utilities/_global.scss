@@ -1,0 +1,107 @@
+@charset "utf-8";
+// ==========================================================================
+// = Global Variables
+// ==========================================================================
+$experimental-support-for-opera        : false !global;
+
+// Site width
+$width_1: 1200px;
+$width_2: 1200px;
+$width_3: 1400px;
+//Number of grid column for view Desktop, Tablet and Mobile view
+$D: 12;
+$T: 9;
+$M: 6;
+
+// Susy config
+/* Changing Susy default global settings */
+$susy: (
+        columns: $D,
+        use-custom: (
+                rem: true,
+                clearfix: true,
+        ),
+        container: $width_1,
+        global-box-sizing: border-box,
+        gutter-position: after, // возможны разные варианты, например, before и inside after
+        debug: (
+                //image: show, // варианты: show | hide | show-columns | show-baseline для показа всех вариантов колонок и линеечек
+                color: rgba(#66f, 0.25), // менять цвет у колонок rgba(#66f, 0.25)
+                output: background, // есть еще вариант overlay, в котором колонки показываются только при наведении background
+                toggle: top right, // положение переключателя для показа оверлея
+        )
+);
+
+@include border-box-sizing;
+
+
+$base-font-size: 16px !global;
+$base-line-height: 24px !global;
+$rhythm-unit: 'rem' !global;
+$rem-with-px-fallback: true !global;
+$strict-normalize: true !global;
+
+
+// Font Family
+// ===========
+
+@import "fonts";
+
+// Font Weights
+// ============
+
+$font-weight-ulight           : 100;
+$font-weight-light            : 300;
+$font-weight-normal           : 400;
+$font-weight-medium           : 500;
+$font-weight-semibold         : 700;
+$font-weight-bold             : 900;
+
+
+// Breakpoints
+// ===========
+$screen-200     : 200px;
+$screen-480     : 480px;
+$screen-600     : 600px;
+$screen-768     : 768px;
+$screen-1024    : 1024px;
+$screen-1280    : 1280px;
+$screen-1600    : 1600px;
+$screen-2560    : 2560px;
+
+// Размер экрана 200 - 480 px
+$mobile: screen ('min-width' $screen-200) ('max-width' $screen-480);
+
+// Размер экрана 481 - 768 px
+$tablet: screen ('min-width' $screen-480+1) ('max-width' $screen-768);
+
+// Размер экрана 200 - 768 px
+$small: screen ('min-width' $screen-200) ('max-width' $screen-768);
+
+// Размер экрана 768 - 1024 px
+$tablet-1x: screen ('min-width' $screen-768+1) ('max-width' $screen-1024);
+
+// Размер экрана 1024 - 1280 px
+$desktop-1x: screen ('min-width' $screen-1024+1) ('max-width' $screen-1280);
+
+// Размер экрана 1280 - 1600 px
+$desktop-2x: screen ('min-width' $screen-1280+1) ('max-width' $screen-1600);
+
+// Размер экрана 1600 - 2560 px
+$desktop-3x: screen ('min-width' $screen-1600+1) ('max-width' $screen-2560);
+
+// Base Breakpoints
+// $small
+// $tablet-1x
+// $desktop-1x
+// $desktop-2x
+
+
+// z-index reference
+$zindex: (
+        modal                       : 9000,
+        overlay                     : 8000,
+        dropdown                    : 7000,
+        header                      : 6000,
+        footer                      : 5000
+);

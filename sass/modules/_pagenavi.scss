@@ -1,0 +1,85 @@
+.wp-pagenavi{
+  @include span(full);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
+  @include marg-y(40px, 80px);
+
+  @include breakpoint($small){
+    font-size: 20px;
+  }
+
+  a{
+    font-size: inherit;
+    color: #999;
+    font-weight: 300;
+    margin: 0 8px;
+    vertical-align: middle;
+    line-height: 40px;
+    transition: all 200ms ease 0s;
+
+    @include breakpoint($small){
+      line-height: 40px;
+    }
+
+    &:hover{
+      color: $color_2;
+    }
+  }
+
+  .smaller{
+
+  }
+
+  .large{
+
+  }
+
+  .current{
+    color: #999;
+    //background-color: $color_2;
+    border: 1px solid $color_2;
+    @include border-radius(50%);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 38px;
+    vertical-align: middle;
+    display: inline-block;
+    @include squish(5px);
+
+    @include breakpoint($small){
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+
+  .previouspostslink, .nextpostslink{
+    font-family: $bff-2;
+
+    &:before, &:after{
+      @include mdi();
+    }
+  }
+
+  .previouspostslink{
+    margin-right: 30px;
+
+    &:before{
+      @include mdi();
+      content: '\F04D';
+      margin-right: 12px;
+    }
+  }
+
+  .nextpostslink{
+    margin-left: 30px;
+
+    &:after{
+      @include mdi();
+      content: '\F054';
+      margin-left: 12px;
+    }
+  }
+}

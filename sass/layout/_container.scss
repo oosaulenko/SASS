@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+body{
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+body.noscroll{
+  overflow: hidden;
+}
+
+body.hidden{
+  overflow: hidden;
+}
+
+body.home{
+  overflow: hidden;
+}
+
+
+body.admin-bar{
+  #l-page{
+    margin-top: 112px;
+  }
+}
+
+#l{
+
+  &-inner{
+    @include container();
+    width: $width_1;
+    position: relative;
+    z-index: 10;
+    overflow: initial;
+
+    @include breakpoint($mobile){
+      @include span(full);
+      @include pad(10px);
+    }
+
+    @include breakpoint($tablet){
+      @include span(full);
+      @include pad(15px);
+    }
+
+    @include breakpoint($tablet-1x){
+      @include span(full);
+      @include pad(15px);
+    }
+
+    @include breakpoint($desktop-1x){
+      @include span(full);
+      @include pad(15px);
+    }
+
+    @include breakpoint($desktop-2x){
+      //width: 940px;
+    }
+  }
+
+  &-page{
+    @include span(full);
+    margin-top: 50px;
+    padding-bottom: 0;
+    padding-left: 65px;
+  }
+
+  &-header{
+    @include span(full);
+    background-color: transparent;
+    position: relative;
+    z-index: map_get($zindex, 'header');
+
+    @include breakpoint($small){
+      height: auto;
+    }
+  }
+
+  &-footer{
+    @include span(full);
+    background-color: #f2f2f2;
+    z-index: map_get($zindex, 'footer');
+    position: relative;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+
+
+    @include breakpoint($small){
+      margin-top: 25px;
+      padding: 20px 0;
+    }
+  }
+}
+
+#h{
+  &-inner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}

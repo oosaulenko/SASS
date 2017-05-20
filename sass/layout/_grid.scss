@@ -1,0 +1,101 @@
+.grid{
+  @include span(full);
+
+  .item{
+    @include span(full);
+  }
+}
+
+.grid-col-2{
+  .item{
+    @include span(6 of 12);
+
+    @include susy-breakpoint($mobile, $M){
+      @include span(full);
+    }
+
+    //@include susy-breakpoint($tablet, $T){
+    //  @include span(full);
+    //}
+
+    &:nth-of-type(2n){
+      @include span(6 of 12 last);
+
+      @include susy-breakpoint($mobile, $M){
+        @include span(full);
+      }
+
+      //@include susy-breakpoint($tablet, $T){
+      //  @include span(full);
+      //}
+    }
+  }
+}
+
+.grid-col-3{
+  .item{
+    @include span(4 of 12);
+
+    @include susy-breakpoint($mobile, $M){
+      @include span(full);
+    }
+
+    @include susy-breakpoint($tablet, $T){
+      @include span(4.5 of 9);
+    }
+
+    &:nth-of-type(3n){
+      @include span(4 of 12 last);
+
+      @include susy-breakpoint($mobile, $M){
+        @include span(full);
+      }
+
+      @include susy-breakpoint($tablet, $T){
+        @include span(4.5 of 9);
+      }
+    }
+
+    &:nth-of-type(2n){
+      @include susy-breakpoint($tablet, $T){
+        @include span(4.5 of 9 last);
+      }
+    }
+  }
+}
+
+.grid-col-4{
+  .item{
+    @include span(3 of 12);
+
+    @include susy-breakpoint($mobile, $M){
+      @include span(full);
+    }
+
+    @include susy-breakpoint($tablet, $T){
+      @include span(4.5 of 9);
+    }
+
+    &:nth-of-type(4n){
+      @include span(3 of 12 last);
+
+      @include susy-breakpoint($mobile, $M){
+        @include span(3 of 6 last);
+      }
+
+      @include susy-breakpoint($tablet, $T){
+        @include span(4.5 of 9 last);
+      }
+    }
+
+    &:nth-of-type(2n){
+      @include susy-breakpoint($mobile, $M){
+        @include span(3 of 6 last);
+      }
+
+      @include susy-breakpoint($tablet, $T){
+        @include span(4.5 of 9 last);
+      }
+    }
+  }
+}

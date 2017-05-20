@@ -1,0 +1,25 @@
+{
+  "name": "mrowl",
+  "version": "1.0.0",
+  "description": "=== Mr. OWL === Author: oosaulenko (http://m-owl.com)",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.18.8",
+    "compass-importer": "^0.4.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-dest": "^0.2.3",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11",
+    "susy": "^2.2.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oosaulenko",
+  "license": "ISC"
+}

@@ -1,0 +1,128 @@
+.side-nav {
+  position: fixed;
+  width: 80%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  height: 100vh;
+  padding-bottom: 60px;
+  background-color: $white;
+  z-index: 6000;
+  overflow-y: auto;
+  will-change: transform;
+  backface-visibility: hidden;
+  @include transform(translateX(-105%));
+  @extend .z-depth-1;
+
+  // Right Align
+  &.right-aligned {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+  }
+
+  .collapsible {
+    margin: 0;
+  }
+
+  li{
+    @include span(full);
+    line-height: 48px;
+
+    a{
+      font-family: $bff-2;
+      color: $l_black;
+      display: block;
+      font-size: 18px;
+      font-weight: 300;
+      height: 44px;
+      line-height: 44px;
+      padding: 0 (12px * 2);
+    }
+
+    &:hover{
+      a{
+        background-color: rgba(0,0,0,.05);
+      }
+    }
+
+    &.title_menu{
+      height: 60px;
+      font-size: 20px;
+      font-weight: 300;
+      padding: 0 20px;
+      line-height: 60px;
+      color: $l_black;
+      font-family: $bff-2;
+      border-bottom: 1px solid #eee;
+    }
+
+    &.phone{
+      text-align: center;
+      float: left;
+
+      a{
+        color: $white;
+      }
+    }
+
+    &.active { background-color: rgba(0,0,0,.05); }
+  }
+
+  .divider {
+    margin: (12px / 2) 0 0 0;
+  }
+
+  .sub-menu{
+    a{
+      padding-left: 48px;
+      line-height: 1;
+      height: auto;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+
+// Touch interaction
+.drag-target {
+  height: 100%;
+  width: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 998;
+}
+
+
+// Fixed side-nav shown
+.side-nav.fixed {
+  left: 0;
+  transform: translateX(0);
+  position: fixed;
+
+  // Right Align
+  &.right-aligned {
+    right: 0;
+    left: auto;
+  }
+}
+
+
+.side-nav .collapsible-body > ul:not(.collapsible) > li.active,
+.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
+  background-color: $color_2;
+  a {
+    color: $color;
+  }
+}
+
+#sidenav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120vh;
+  background-color: rgba($black, .5);
+  z-index: 997;
+  will-change: opacity;
+}

@@ -1,0 +1,706 @@
+.section{
+  position: relative;
+  @include span(full);
+  height: 100vh;
+
+  .title_section{
+    @include squish(1 0);
+    color: $white;
+    font-family: $ff-bebas;
+    line-height: 1;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 40px;
+    height: 166px;
+    width: 0;
+    @include transition(all 500ms ease 2000ms);
+
+    &:before, &:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 0;
+      @include transition(all 500ms ease 0ms);
+    }
+
+    b, span{
+      position: relative;
+      float: left;
+      @include transition(all 750ms ease 0s);
+
+      &:before{
+        content: '';
+        width: calc(100% + 20px);
+        height: 100%;
+        background-color: rgba($color_2, 1);
+        position: absolute;
+        left: -20px;
+        top: 0;
+        @include transition(all 250ms ease 0s);
+      }
+    }
+
+    b{
+      font-size: 130px;
+      font-weight: 600;
+      line-height: 86px;
+      position: relative;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+    }
+
+    span{
+      font-size: 90px;
+      font-weight: 300;
+      line-height: 65px;
+    }
+
+    &-active{
+      &:before{
+        height: 167px!important;
+      }
+
+      &:after{
+        height: 167px!important;
+      }
+
+      b.active, span.active{
+
+        &:before{
+          width: 10px;
+        }
+      }
+    }
+  }
+}
+
+.section-products{
+
+  .fp-tableCell{
+    vertical-align: top;
+  }
+}
+
+.block_products{
+  @include span(full);
+  height: calc(100vh - 50px);
+
+  .item{
+    @include span(3.5 of 12 inside);
+    background-color: #792728;
+    height: calc(100vh - 50px);
+    margin: 0;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    padding: 0 40px;
+
+    .inner{
+      position: relative;
+      width: 100%;
+    }
+
+    .image{
+      float: left;
+      position: relative;
+      z-index: 400;
+      left: -60px;
+
+      img{
+        float: left;
+      }
+    }
+
+    .pizza{
+      position: absolute;
+      right: 0;
+      bottom: calc(10% + 342px/1.75);
+      opacity: 0;
+      transition: 100ms ease 200ms;
+      z-index: 500;
+
+      img{
+        width: 316px;
+        height: auto;
+      }
+    }
+
+
+    .block_info{
+      opacity: 0;
+      position: absolute;
+      bottom: 10%;
+      width: 275px;
+      height: 342px;
+      @include box-shadow(0 2px 13px rgba(0, 0, 0, 0.25));
+      background-color: $white;
+      left: 50%;
+      @include transform(translateX(-50%));
+      @include transition(all 100ms ease 200ms);
+      z-index: 1000;
+
+      .title{
+        @include span(full);
+        font-size: 32px;
+        font-family: $ff-lobster;
+        color: #333;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #d0d0d0;
+        line-height: 1;
+      }
+
+      .ingridients{
+        @include span(full);
+        margin-top: 12px;
+        padding: 0 12px;
+        position: relative;
+        height: 133px;
+        @include transition(all 400ms cubic-bezier(0.5, -1.3, 0.150, 1.7) 0s);
+
+        .name{
+          color: #333333;
+          font-family: $ff-raleway;
+          line-height: 1;
+        }
+
+        .items{
+          @include span(full);
+          position: absolute;
+          bottom: 10px;
+          width: 100%;
+          left: 0;
+          right: 0;
+          padding: 10px;
+          @include border-radius(5px);
+          background-color: $white;
+          height: 90px;
+          overflow: hidden;
+          @include transition(all 400ms cubic-bezier(0.5, -1.3, 0.150, 1.7) 0s);
+
+          .element{
+            @include span(4 of 12);
+            height: 100px;
+
+            &:nth-child(3n){
+              @include span(4 of 12 last);
+            }
+
+            img{
+              @include square(70px);
+            }
+
+            .name{
+              @include span(full);
+              font-size: 12px;
+              opacity: 0;
+              text-align: center;
+            }
+          }
+        }
+
+        &:hover{
+
+          .items{
+            height: auto;
+            @include box-shadow(0 2px 13px rgba(0, 0, 0, 0.25));
+            width: calc(100% + 40px);
+            left: -20px;
+            right: -20px;
+
+            .name{
+              opacity: .85;
+            }
+          }
+        }
+      }
+
+      .view{
+        width: 295px;
+        height: 90px;
+        @include box-shadow(0 2px 13px rgba(0, 0, 0, 0.25));
+        background-color: #f5f5f5;
+        position: absolute;
+        bottom: 34px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+
+        .view-inner{
+
+        }
+
+        .view-item{
+          @include span(full);
+          text-align: center;
+          padding: 2px 0;
+
+          label{
+            display: inline-block;
+          }
+
+          input{
+            float: left;
+            margin-right: 17px;
+            position: relative;
+            top: 5px;
+          }
+
+          span{
+            float: left;
+            color: #333333;
+            font-weight: 400;
+
+            &:after{
+              content: '';
+              float: right;
+              width: 1px;
+              height: 15px;
+              background-color: #444a5a;
+              margin: 0 15px;
+              position: relative;
+              top: 6px;
+            }
+
+            &:last-of-type{
+              &:after{
+                display: none;
+              }
+            }
+
+            &.dimensions, &.weight{
+              font-size: 20px;
+              font-weight: 500;
+
+              b{
+                font-size: 16px;
+                font-weight: 400;
+              }
+            }
+
+            &.display_price{
+              font-size: 16px;
+
+              b{
+                font-size: 20px;
+                color: #ff0000;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+      }
+
+      .bottom{
+        width: 229px;
+        height: 46px;
+        @include box-shadow(0 2px 13px rgba(0, 0, 0, 0.25));
+        background-color: #f5f5f5;
+        position: absolute;
+        bottom: -24px;
+        right: -39px;
+
+        .quantity{
+          float: left;
+          width: 63px;
+          height: 46px;
+          border: 1px solid $color_3;
+
+          .input-number,
+          .input-number-decrement,
+          .input-number-increment {
+            border: 1px solid #ccc;
+            height: 22px;
+            user-select: none;
+            float: left;
+          }
+
+
+          .input-number {
+            width: 100%;
+            height: 44px;
+            padding: 0 12px;
+            vertical-align: top;
+            text-align: center;
+            outline: none;
+            font-size: 26px;
+            font-family: $ff-bebas;
+            font-weight: 500;
+            color: #444a5a;
+
+            &-increment, &-decrement{
+              display: none;
+              width: 20px;
+              line-height: 28px;
+              background: transparent;
+              color: $color;
+              text-align: center;
+              font-weight: bold;
+              cursor: pointer;
+              font-size: 18px;
+
+              &:active{
+
+              }
+            }
+
+            &-decrement{
+              border-right: none;
+              border-radius: 15px 0 0 15px;
+            }
+
+            &-increment{
+              border-left: none;
+              border-radius: 0 15px 15px 0;
+            }
+          }
+        }
+
+        .button{
+          width: 166px;
+          height: 46px;
+          float: right;
+          font-family: $ff-bebas;
+          @include border-radius(0);
+          @include box-shadow(0);
+          font-size: 22px;
+          line-height: 46px;
+          text-align: center;
+        }
+      }
+    }
+
+    &.is-selected{
+      .block_info, .pizza{
+        opacity: 1;
+      }
+    }
+  }
+
+}
+
+.section-sale{
+
+  .block_sale{
+    @include span(full);
+    height: 100vh;
+
+    .slick-slide{
+      @include transition(all 200ms ease 0s);
+    }
+
+    .slick-active{
+      opacity: 1;
+
+      &:before{
+        opacity: 0;
+      }
+    }
+
+    .slide-item{
+      @include span(full);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: calc(100vh - 50px);
+    }
+  }
+
+  .block_sale_button{
+    background-color: rgba($black, .5);
+    width: 320px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    z-index: 2000;
+    text-align: center;
+
+    .btn{
+      font-size: 18px;
+      color: $white;
+      line-height: 50px;
+      font-weight: 300;
+
+      &-prev{
+
+        &:after{
+          content: '';
+          background-color: $white;
+          @include square(6px);
+          @include border-radius(50%);
+          margin: 0 16px;
+          display: inline-block;
+          position: relative;
+          top: -2px;
+        }
+      }
+
+      &-next{
+
+      }
+    }
+  }
+}
+
+.section-random{
+
+  .block_random{
+    @include span(full);
+    height: 100vh;
+    background-position: center;
+
+    &:before{
+      content: '';
+      @include square(100%);
+      background-color: rgba($black, .1);
+    }
+
+    .block_image{
+      float: left;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 200;
+
+      img{
+        height: 100vh;
+        padding-left: span(2);
+      }
+    }
+
+    .block_info{
+      position: relative;
+      z-index: 500;
+      height: 100vh;
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+
+      .info_random{
+        position: relative;
+        @include span(50% last);
+        @include pad(1 0);
+        z-index: 500;
+
+        .info{
+          color: $white;
+          @include span(full);
+          position: relative;
+          opacity: 0;
+          @include transition(all 500ms ease 0s);
+
+          p{
+            @include span(full);
+            margin-bottom: 24px;
+          }
+
+          &-active{
+            opacity: 1;
+
+            &:before, &:after{
+              width: 0;
+            }
+          }
+        }
+
+        .button{
+          height: 48px;
+          padding: 0 55px;
+          float: right;
+          @include border-radius(24px);
+        }
+      }
+    }
+
+    .block_overflow{
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 300;
+      height: 100vh;
+      width: 50%;
+      float: right;
+
+      .overflow-inner{
+        background-color: rgba($color, .9);
+        @include transform(skewX(-8deg));
+        width: 130%;
+        height: 100vh;
+        position: relative;
+      }
+
+      $width_pizza: 716px;
+
+      &:before{
+        content: '';
+        background-image: url('img/pizzarandom.png');
+        position: absolute;
+        top: 50%;
+        left: -$width_pizza/2;
+        @include transform(translateY(-50%));
+        width: $width_pizza;
+        height: 724px;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+.section-constuct{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-image: url('img/pizza_maker.png');
+    background-repeat: no-repeat;
+    background-position: center left;
+  }
+
+  .block_construct{
+    position: relative;
+    @include span(5 of 12);
+    @include pad(0);
+    z-index: 500;
+
+    .info{
+      color: $white;
+      @include span(full);
+      position: relative;
+      opacity: 0;
+      @include transition(all 500ms ease 0s);
+
+      p{
+        @include span(full);
+        margin-bottom: 24px;
+      }
+
+      &-active{
+        opacity: 1;
+
+        &:before, &:after{
+          width: 0;
+        }
+      }
+    }
+
+    .button{
+      height: 54px;
+      @include border-radius(27px);
+      float: right;
+      margin-top: 12px;
+      line-height: 54px;
+      overflow: hidden;
+
+      &-actives{
+
+      }
+    }
+
+    .bottom{
+      @include span(full);
+      height: 1px;
+    }
+  }
+}
+
+.section-reviews{
+  @include span(full);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .title_section {
+    margin-bottom: 0;
+  }
+
+  .block_reviews{
+    @include span(full);
+    background-color: $white;
+    padding: 80px 0 75px;
+    @include box-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+
+    .slick-arrow{
+      @include border-radius(0);
+      @include square(65px);
+      border: 2px solid $color_2;
+      background-color: transparent;
+      @include box-shadow(none);
+      margin-top: 0;
+      top: -65px;
+      @include transform(rotate(-90deg));
+
+      &:after{
+        border-color: $color_2;
+      }
+
+      &:hover{
+        background-color: $color_2;
+
+        &:after{
+          border-color: $black;
+        }
+      }
+    }
+
+    .slick-next{
+      right: 0;
+      @include transform(rotate(-270deg));
+    }
+
+    .slick-prev{
+      right: 70px;
+      left: auto;
+    }
+
+    .item{
+      @include pad(50px);
+
+      .image{
+        @include span(full);
+        margin-bottom: 18px;
+
+        img{
+          @include square(80px);
+          @include border-radius(50%);
+        }
+      }
+
+      .name{
+        @include span(full);
+        font-size: 12px;
+        font-weight: 600;
+        color: #515255;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .other{
+        @include span(full);
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 22px;
+        text-align: center;
+      }
+
+      .text{
+        @include span(full);
+        font-size: 14px;
+        text-align: center;
+        color: #666;
+      }
+    }
+  }
+}

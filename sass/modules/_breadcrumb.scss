@@ -1,0 +1,33 @@
+.breadcrumbs{
+  @include span(full);
+  margin-top: -20px;
+  margin-bottom: 30px;
+  font-size: 14px;
+
+  @include breakpoint($small){
+    padding: 0 10px;
+  }
+
+  span{
+    color: $color_2;
+    font-weight: 600;
+    margin: 0 5px;
+
+    &:first-of-type{
+      @include breakpoint($small){
+        margin-left: 0;
+      }
+    }
+
+    a{
+      color: $l_black;
+      font-weight: 400;
+
+      span{
+        color: inherit;
+        font-weight: inherit;
+        margin: 0;
+      }
+    }
+  }
+}

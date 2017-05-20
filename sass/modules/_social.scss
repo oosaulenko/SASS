@@ -1,0 +1,94 @@
+.social{
+  float: right;
+  line-height: 1;
+  margin-top: 6px;
+
+  @include susy-breakpoint($mobile, $M){
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  @include susy-breakpoint($tablet, $T){
+    font-size: 24px;
+  }
+
+  .icon{
+    color: $color_2;
+    font-size: 28px;
+    margin-right: 10px;
+    @include border-radius(8px);
+    display: inline-block;
+    text-align: center;
+    transition: all 20ms ease 0s;
+
+    &:hover{
+      color: $color;
+    }
+
+    @include susy-breakpoint($mobile, $M){
+      font-size: 24px;
+    }
+
+    @include susy-breakpoint($tablet, $T){
+      font-size: 24px;
+    }
+
+    &:last-of-type{
+      margin-right: 0;
+    }
+
+    &:before{
+      @include mdi();
+    }
+
+    &-fb{
+      &:before{
+        content: '\F20C';
+      }
+    }
+
+    &-vk{
+
+      &:before{
+        content: '\F579';
+      }
+    }
+
+    &-youtube{
+      &:before{
+        content: '\F5C3';
+      }
+    }
+
+    &-instagram{
+      &:before{
+        content: '\F2FE';
+      }
+    }
+
+    &-in{
+      &:before{
+        content: '\F33B';
+      }
+    }
+
+    &-twitter{
+      &:before{
+        content: '\F544';
+      }
+    }
+
+    &-google{
+      &:before{
+        content: '\F2BD';
+      }
+    }
+
+    &-ok{
+      &:before{
+        content: '\F3C5';
+      }
+    }
+  }
+}

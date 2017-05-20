@@ -1,0 +1,66 @@
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  @extend .z-depth-4;
+  background-color: $white;
+  width: 440px;
+  margin: auto;
+  overflow-y: hidden;
+  padding: 60px;
+  z-index: -1!important;
+  @include border-radius(5px);
+  top: 50%!important;
+  transform: translateY(-50%) scaleX(1) !important;
+
+  &.open{
+    z-index: 10001!important;
+  }
+
+  @include breakpoint($mobile){
+    width: calc(100% - 20px);
+    overflow-y: hidden;
+    padding: 15px;
+  }
+
+  &-overlay{
+    background-color: $black;
+    opacity: .6!important;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 10000!important;
+  }
+
+  &-close {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: transparent;
+    @include transition(all 200ms ease 0s);
+    outline: none;
+    opacity: .3;
+
+    &:before{
+      @include fa-icon();
+      font-size: 26px;
+      color: #999;
+      content: $fa-var-times-circle-o;
+      transition: all 200ms ease 0s;
+    }
+
+    &:hover{
+      opacity: 1;
+
+      &:before{
+        color: $color;
+      }
+    }
+  }
+}

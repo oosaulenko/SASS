@@ -1,0 +1,168 @@
+.form-search{
+  @include span(full);
+  position: relative;
+
+  .nf-before-form-content{
+    display: none;
+  }
+
+  .textbox-container, .email-container{
+
+    .ninja-forms-field{
+      @include span(full);
+      border: 1px solid $color;
+      @include border-radius(21px);
+      padding: 10px 19px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $l_black;
+      background-color: transparent;
+      outline: none;
+      height: 46px;
+
+
+      @include breakpoint($small){
+        @include span(full);
+        background-color: $white;
+      }
+
+      @include placeholder{
+        color: #b3b3b3;
+      }
+    }
+
+    .nf-after-field{
+      .nf-input-limit{
+        display: none;
+      }
+
+      .nf-error-msg{
+        font-size: 14px;
+        margin-top: 5px;
+        text-align: center;
+      }
+    }
+  }
+
+  .nf-form-errors{
+    display: none;
+  }
+
+  .submit-container{
+    position: absolute;
+    top: 1px;
+    right: 0;
+  }
+
+  .ninja-forms-field{
+    &.button{
+      @include breakpoint($small){
+        height: 44px!important;
+        line-height: 1;
+        padding: 0 6px;
+      }
+    }
+  }
+}
+
+.form_modal_block{
+  @include span(full);
+
+  .nf-form-fields-required{
+    display: none;
+  }
+
+  .nf-form-title{
+    h3{
+      @include span(full);
+      color: #333;
+      font-family: $ff-bebas;
+      text-align: center;
+      //font-family: $ff-comfortaa;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 50px;
+      line-height: 1;
+      margin-top: 0;
+    }
+  }
+
+  .nf-field-container{
+    @include span(full);
+    margin-bottom: 20px;
+
+    .ninja-forms-field{
+      @include span(full);
+      border: 0;
+      border-bottom: 1px solid $color;
+      padding: 8px 16px;
+      outline: none;
+      color: $l_black;
+
+      @include placeholder{
+        color: #666;
+      }
+    }
+
+    .nf-error-msg{
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .nf-error{
+
+      .ninja-forms-field{
+        border-color: red;
+      }
+    }
+  }
+
+  .submit-wrap{
+    @include span(full);
+    text-align: center;
+    margin-top: 20px;
+
+    .ninja-forms-field{
+      float: none;
+      width: 200px;
+      height: 50px;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.45);
+      @include border-radius(25px);
+      text-align: center;
+      color: $white;
+      //font-family: $ff-comfortaa;
+      font-size: 22px;
+      font-family: $ff-bebas;
+      border: 0;
+      background-color: $color_3;
+      transition: all 200ms ease 0s;
+
+      &:hover{
+        background-color: lighten($color_3, 10);
+      }
+
+      &:active{
+        background-color: darken($color_3, 10);
+      }
+    }
+  }
+
+  .nf-input-limit{
+    margin-top: 0;
+  }
+
+  .nf-form-errors{
+    .nf-error-msg{
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .nf-response-msg{
+    text-align: center;
+    font-size: 24px;
+    //font-family: $ff-comfortaa;
+    color: $l_black;
+    font-weight: 300;
+  }
+}
